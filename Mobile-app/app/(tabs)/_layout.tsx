@@ -1,0 +1,17 @@
+import { Tabs } from 'expo-router';
+import React from 'react';
+import {View,Text} from 'react-native';
+import {TabBar} from '@/components/TabBar';
+
+
+export default function TabLayout() {
+
+  return (
+             <Tabs tabBar={props => <TabBar  {...props} />}>
+              <Tabs.Screen name='index' options={{title:'Home'}}></Tabs.Screen>
+              <Tabs.Screen name='Chatbot' options={{title:'Chatbot'}}></Tabs.Screen>
+              <Tabs.Screen name='Profile' options={{title:'Profile'}}></Tabs.Screen>
+
+             </Tabs>
+  )
+}
