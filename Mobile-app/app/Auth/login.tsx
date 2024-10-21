@@ -3,6 +3,7 @@ import React from 'react'
 
 
 const Page = () =>{
+
   return (
     <View style={styles.container}>
       <Text>hada login page</Text>
@@ -13,6 +14,7 @@ const Page = () =>{
 export default Page;
   
 
+// in your page file (e.g., welcome.tsx)
 
 const styles = StyleSheet.create({
   container:{

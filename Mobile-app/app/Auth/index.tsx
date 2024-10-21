@@ -3,7 +3,7 @@ import React from 'react'
 import { useRouter } from 'expo-router';  // Import the router
 
 
-const Page = () =>{
+const Pagea = () =>{
     const router = useRouter();  // Initialize the router for navigation
 
   return (
@@ -19,7 +19,7 @@ const Page = () =>{
     </View>
       )
 }
-export default Page;
+export default Pagea;
   
 
 

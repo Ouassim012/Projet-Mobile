@@ -5,12 +5,13 @@ import {TabBar} from '@/components/TabBar';
 import { Stack } from 'expo-router';
 
 
-export default function TabLayout() {
+export default function AuthLayout() {
+  console.log('layoutauth page is rendering');  // This will log every render
 
   return (
-    <Stack>
-    <Stack.Screen name="welcome" options={{ headerShown: false }} />
-
+    <Stack screenOptions={{ headerShown: false }}>
+    <Stack.Screen name="welcome" />  
+    <Stack.Screen name="login" />    
   </Stack>
   )
 }

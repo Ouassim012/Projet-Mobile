@@ -1,13 +1,9 @@
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs'
 import { Feather } from '@expo/vector-icons';
+import TabBarButton from './TabBarButton';
 export function TabBar({ state, descriptors, navigation }:BottomTabBarProps) {
-  const icon={
-    index:(props:any)=> <Feather name='home' size={24} color={'#222'} {...props}/>,
-    Chatbot:(props:any)=> <Feather name='message-square' size={24} color={'#222'} {...props}/>,
-    Profile:(props:any)=> <Feather name='user' size={24} color={'#222'} {...props}/>
 
-  }
   return (
     <View style={styles.tabbar}>
       {state.routes.map((route, index) => {
@@ -41,6 +37,15 @@ export function TabBar({ state, descriptors, navigation }:BottomTabBarProps) {
         };
 
         return (
+          <TabBarButton
+          key={route.name}
+          onPress={onPress}
+          onLongPress={onLongPress}
+          isFocused={isFocused}
+          routeName={route.name}
+          color={isFocused?'#673ab7':'#222'}
+          label={label}/>
+          /*
           <TouchableOpacity
           key={route.name}
             accessibilityRole="button"
@@ -57,7 +62,7 @@ export function TabBar({ state, descriptors, navigation }:BottomTabBarProps) {
             <Text style={{ color: isFocused ? '#673ab7' : '#222' }}>
               {label}
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity>*/
         );
       })}
     </View>
