@@ -1,11 +1,39 @@
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, LayoutChangeEvent } from 'react-native';
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs'
 import { Feather } from '@expo/vector-icons';
 import TabBarButton from './TabBarButton';
+import { useState } from 'react';
+import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 export function TabBar({ state, descriptors, navigation }:BottomTabBarProps) {
+  const [dimensions,setdimension]=useState({height:20,width:100})
+  const buttonwidth= dimensions.width/state.routes.length
+
+  const onTabbarLayout=(e:LayoutChangeEvent)=>{
+    setdimension({
+      height:e.nativeEvent.layout.height,
+      width:e.nativeEvent.layout.width,
+
+    });
+  };
+  const tabPositionx=useSharedValue(0);
+  const animatedStyle= useAnimatedStyle(() => {
+    return {
+      transform:[{translateX:tabPositionx.value}]
+    };
+  });
+
+
 
   return (
-    <View style={styles.tabbar}>
+    <View onLayout={onTabbarLayout} style={styles.tabbar}>
+      <Animated.View style={[animatedStyle,{
+        position:"absolute",
+        backgroundColor:"#2dabeb",
+        borderRadius:26,
+        marginHorizontal:12,
+        height:dimensions.height-20,
+        width:buttonwidth-22
+      }]}/>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
@@ -18,6 +46,8 @@ export function TabBar({ state, descriptors, navigation }:BottomTabBarProps) {
         const isFocused = state.index === index;
 
         const onPress = () => {
+          tabPositionx.value=withSpring(buttonwidth*index,{duration:1500})
+
           const event = navigation.emit({
             type: 'tabPress',
             target: route.key,
@@ -43,7 +73,7 @@ export function TabBar({ state, descriptors, navigation }:BottomTabBarProps) {
           onLongPress={onLongPress}
           isFocused={isFocused}
           routeName={route.name}
-          color={isFocused?'#673ab7':'#222'}
+          color={isFocused?'#fff':'#222'}
           label={label}/>
           /*
           <TouchableOpacity
@@ -77,14 +107,17 @@ tabbar:{
   alignItems:'center',
   backgroundColor:'#fff',
   marginHorizontal:80,
-paddingVertical:15,
+paddingVertical:12,
 borderRadius:35,
-shadowColor:'#000',
-shadowOffset:{
-  width:100,height:80
+shadowColor: '#000', // Shadow color
+shadowOffset: {
+  width: 0, // Horizontal offset
+  height: 10, // Vertical offset
 },
-shadowRadius:10,
-shadowOpacity:0.9,
+shadowOpacity: 0.25, // Opacity of the shadow
+shadowRadius: 20, // Blur radius of the shadow
+elevation: 10, // For Android (optional)
+
 },
 tabbarItem:{
 flex:1,

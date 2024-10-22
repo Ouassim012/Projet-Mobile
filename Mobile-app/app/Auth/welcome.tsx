@@ -11,7 +11,7 @@ const Page = () =>{
       <Text>hada welcome page</Text>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => router.push('/Auth/login')}  // Navigate to login page
+        onPress={() => router.push('(tabs)')}  // Navigate to login page
       >
         <Text style={styles.buttonText}>Go to Login</Text>
       </TouchableOpacity>
