@@ -3,7 +3,9 @@ import {BottomTabBarProps} from '@react-navigation/bottom-tabs'
 import { Feather } from '@expo/vector-icons';
 import TabBarButton from './TabBarButton';
 import { useState } from 'react';
-import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
+import Animated, { useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
+import React from 'react';
+import { useFocusEffect } from 'expo-router';
 export function TabBar({ state, descriptors, navigation }:BottomTabBarProps) {
   const [dimensions,setdimension]=useState({height:20,width:100})
   const buttonwidth= dimensions.width/state.routes.length
@@ -21,11 +23,29 @@ export function TabBar({ state, descriptors, navigation }:BottomTabBarProps) {
       transform:[{translateX:tabPositionx.value}]
     };
   });
+  const isChatbotFocused = state.routes[state.index].name === 'Chatbot';
+  const tabOpacity = useSharedValue(1); // New shared value for opacity
+  const tabBarAnimatedStyle = useAnimatedStyle(() => ({
+    opacity: tabOpacity.value,
+  }));
+  useFocusEffect(
+    React.useCallback(() => {
+      if (isChatbotFocused) {
+        // Animate opacity to 0 over 300ms
+        tabOpacity.value = withTiming(0, { duration: 300 }, () => {
+          tabPositionx.value = 0; // Reset position if needed
+        });
+      } else {
+        // Reset opacity back to 1 when not focused
+        tabOpacity.value = withTiming(1, { duration: 500 });
+        tabPositionx.value = withSpring(buttonwidth * state.index); // Move tab position when refocusing
+      }
+    }, [state.index, isChatbotFocused])
+  );
 
-
-
+  
   return (
-    <View onLayout={onTabbarLayout} style={styles.tabbar}>
+    <Animated.View onLayout={onTabbarLayout} style={[styles.tabbar, tabBarAnimatedStyle]}>
       <Animated.View style={[animatedStyle,{
         position:"absolute",
         backgroundColor:"#2dabeb",
@@ -44,7 +64,12 @@ export function TabBar({ state, descriptors, navigation }:BottomTabBarProps) {
             : route.name;
 
         const isFocused = state.index === index;
-
+        const springConfig = {
+          stiffness: 50, // Default is usually higher (like 100), reduce for less bounce
+          damping: 10,    // Default is usually lower (like 20), increase for less bounce
+          mass: 1,        // Default is usually 1, can adjust to change responsiveness
+          
+        };
         const onPress = () => {
           tabPositionx.value=withSpring(buttonwidth*index,{duration:1500})
 
@@ -95,7 +120,7 @@ export function TabBar({ state, descriptors, navigation }:BottomTabBarProps) {
           </TouchableOpacity>*/
         );
       })}
-    </View>
+    </Animated.View>
   );
 }
 const styles = StyleSheet.create({
