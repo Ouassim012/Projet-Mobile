@@ -18,10 +18,7 @@ type Message = {
 
 const Page = () => {
   const [msg, setMsg] = useState<string>(""); 
-  const [fontsLoaded] = useFonts({
-    Allan_400Regular,
-    Allan_700Bold,
-  });
+  
   const [messages, setMessages] = useState<Message[]>([]);
   const [isFocused, setIsFocused] = useState(false); 
   const [isTyping, setIsTyping] = useState(false); 
@@ -128,9 +125,7 @@ const Page = () => {
             </Text>
           </View>
   );
-  if (!fontsLoaded) {
-    return <ActivityIndicator size="large" color="#0000ff" />;
-  }
+ 
   const HeaderTitle = () => (
     <Text style={styles.headerTitle}> ChatBot   </Text>
   );

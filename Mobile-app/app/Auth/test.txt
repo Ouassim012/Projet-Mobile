@@ -1,0 +1,84 @@
+   <TouchableOpacity
+       onPress={() => router.push('/Auth/login')}
+        style={{
+          padding: Spacing,
+        }}
+      >
+        <Text
+          style={{
+            //fontFamily: Font["poppins-semiBold"],
+            color: Colors.text,
+            textAlign: "center",
+            fontSize: FontSize.small,
+          }}
+        >
+Vous avez déjà un compte ?</Text>
+      </TouchableOpacity>
+ <View
+        style={{
+          marginVertical: Spacing * 3,
+        }}
+      >
+        <Text
+          style={{
+           // fontFamily: Font["poppins-semiBold"],
+            color: Colors.active,
+            textAlign: "center",
+            fontSize: FontSize.small,
+          }}
+        >
+Ou continuer avec</Text>
+
+ <View
+          style={{
+            marginTop: Spacing,
+            flexDirection: "row",
+            justifyContent: "center",
+          }}
+        >
+          <TouchableOpacity
+            style={{
+              padding: Spacing,
+              backgroundColor: Colors.gray,
+              borderRadius: Spacing / 2,
+              marginHorizontal: Spacing,
+            }}
+          >
+            <Ionicons
+              name="logo-google"
+              color={Colors.text}
+              size={Spacing * 2}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              padding: Spacing,
+              backgroundColor: Colors.gray,
+              borderRadius: Spacing / 2,
+              marginHorizontal: Spacing,
+            }}
+          >
+            <Ionicons
+              name="logo-apple"
+              color={Colors.text}
+              size={Spacing * 2}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              padding: Spacing,
+              backgroundColor: Colors.gray,
+              borderRadius: Spacing / 2,
+              marginHorizontal: Spacing,
+            }}
+          >
+            <Ionicons
+              name="logo-facebook"
+              color={Colors.text}
+              size={Spacing * 2}
+            />
+          </TouchableOpacity>
+        </View>
+
+        
+      </View>
