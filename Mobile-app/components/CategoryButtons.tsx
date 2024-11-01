@@ -28,7 +28,7 @@ onCategoryChanged(destinationCategories[index].title);
     };
     return (
         <View>
-            <Text style={styles.title}>Categories</Text>
+            <Text style={styles.title}>Catégories</Text>
             <ScrollView ref={scrollRef} horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{
                 
                 gap:20,

@@ -249,6 +249,7 @@ const styles = StyleSheet.create({
       paddingHorizontal: 15,
       marginRight: 10,
       color: 'black',
+      width:100
     },
     inputView: {
       flexDirection: 'row',
@@ -368,7 +369,7 @@ const styles = StyleSheet.create({
     },
     backButton: {
       position: 'absolute',
-     top: Platform.OS === 'ios' ? 60 : 40, //  Adjust for iOS/Android differences
+     top: Platform.OS === 'ios' ? 60 : 7, //  Adjust for iOS/Android differences
       left: 20,
       backgroundColor: '#fff',
       borderRadius: 20,
@@ -378,7 +379,7 @@ const styles = StyleSheet.create({
       shadowOpacity: 0.3,
       shadowRadius: 4,
       elevation: 5,
-      zIndex: 10,  // For Android shadow
+      zIndex: 10, 
     },
     speechButton: {
         marginTop: 5,

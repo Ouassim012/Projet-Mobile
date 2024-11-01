@@ -18,7 +18,7 @@ const Listings=({listings,category}:Props)=>{
     setLoading(false)
         },200)
     },[category])
-    const filteredListings = category === 'All' ? listings : listings.filter(listing => listing.category === category);
+    const filteredListings = category === 'Tous' ? listings : listings.filter(listing => listing.category === category);
 
 const renderItems:ListRenderItem<ListingType>=  ({item})=>{
 return (
@@ -33,10 +33,11 @@ return (
         <Text style={styles.itemTxt} numberOfLines={1} ellipsizeMode="tail">{item.name}</Text>
         <View style={{flexDirection:'row',justifyContent:'space-between'}}>
             <View style={{flexDirection:"row",alignItems:"center"}}>
-                <FontAwesome5 name="map-marker-alt" size={18} color={'#2dabeb'}/>
-                <Text style={styles.itemLocationTxt}>{item.location}</Text>
+         
+                <Text style={styles.itemLocationTxt}>{item.duration} </Text><Ionicons name="time" size={14} color={'#2dabeb'} style={{}}/>
             </View>
-            <Text style={styles.itemPriceTxt}>${item.price}</Text>
+            <Text style={styles.itemPriceTxt}>                    
+            {item.rating} </Text><Ionicons name="star" size={15} color={'#2dabeb'} style={{}}/>
         </View>
          </View>
          
@@ -93,7 +94,8 @@ itemLocationTxt:{
 itemPriceTxt:{
     fontSize:12,
     fontWeight:'600',
-    color:'#2dabeb'
+    color:'#2dabeb',
+    marginLeft:117
 
 }
 })

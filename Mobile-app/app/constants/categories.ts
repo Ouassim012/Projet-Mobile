@@ -1,26 +1,26 @@
 const destinationCategories=[
     {
-        title:"All",
+        title:"Tous",
         iconName:"hiking"
     },
     {
-        title:"Forests",
+        title:"Forêts",
         iconName:"tree"
     },
     {
-        title:"Beaches",
+        title:"Plages",
         iconName:"beach"
     },
     {
-        title:"Mountains",
+        title:"Montagnes",
         iconName:"terrain"
     },
     {
-        title:"Cities",
+        title:"Villes",
         iconName:"city"
     },
     {
-        title:"Deserts",
+        title:"Déserts",
         iconName:"weather-sunny"
     },
 ];

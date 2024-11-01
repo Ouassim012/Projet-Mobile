@@ -11,7 +11,7 @@ import { BlurView } from 'expo-blur'; // Make sure to install expo-blur
 
 const Page = () => {
   const headerheight = useHeaderHeight();
-  const [category, setCategory] = useState('All');
+  const [category, setCategory] = useState('Tous');
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const onCatChanged = (category: React.SetStateAction<string>) => {
@@ -46,7 +46,7 @@ const Page = () => {
         }}
       />
       <View style={[styles.container, { paddingTop: headerheight }]}>
-        <Text style={styles.headingTxt}>Explore The Beautiful Sounds</Text>
+        <Text style={styles.headingTxt}>Explorez la beauté des sons relaxants</Text>
         <View style={styles.searchSectionWrapper}>
           <View style={styles.searchBar}>
             <Ionicons name='search' size={20} style={styles.searchIcon} color={Colors.black} />
@@ -69,7 +69,7 @@ const Page = () => {
         >
           <BlurView intensity={50} tint="dark" style={styles.modalBackground}>
             <View style={styles.modalContent}>
-              <Text style={styles.modalText}>Filter Options</Text>
+              <Text style={styles.modalText}>Filtrage des options</Text>
               <View style={{height:100}}><CategoryButtons onCategoryChanged={onCatChanged} /></View>
               
 

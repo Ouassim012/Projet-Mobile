@@ -99,7 +99,6 @@ const router = useRouter()
      <View style={styles.contentWrapper}>
         <Text style={styles.listingName}>{listing.name}</Text>
         <View style={styles.listingLocationWrapper}>
-            <FontAwesome5 name="map-marker-alt" size={20} color={"#2dabeb"}/>
             <Text style={styles.listingLocationText}>{listing.location}</Text>
         </View>
 
@@ -110,19 +109,19 @@ const router = useRouter()
                 </View>
 
                 <View>
-                    <Text style={styles.highlightxt}>Duration</Text>
-                    <Text style={styles.highlighttxtvalue}>{listing.duration} hours</Text>
+                    <Text style={styles.highlightxt}>Durée</Text>
+                    <Text style={styles.highlighttxtvalue}>{listing.duration} min</Text>
                 </View>
             </View>
 
             <View style={{flexDirection:'row'}}>
                 <View style={styles.higjlightIcon}>
-                    <FontAwesome5 name="users" size={20} color={'#2dabeb'}/>
+                    <FontAwesome5 name="tags" size={20} color={'#2dabeb'}/>
                 </View>
 
                 <View>
-                    <Text style={styles.highlightxt}>Person</Text>
-                    <Text style={styles.highlighttxtvalue}>{listing.duration} hours</Text>
+                    <Text style={styles.highlightxt}>Categorie</Text>
+                    <Text style={styles.highlighttxtvalue}>{listing.category}</Text>
                 </View>
             </View>
 
@@ -132,8 +131,8 @@ const router = useRouter()
                 </View>
 
                 <View>
-                    <Text style={styles.highlightxt}>Stars</Text>
-                    <Text style={styles.highlighttxtvalue}>{listing.rating} hours</Text>
+                    <Text style={styles.highlightxt}>Etoils</Text>
+                    <Text style={styles.highlighttxtvalue}>{listing.rating} </Text>
                 </View>
             </View>
         </View>
