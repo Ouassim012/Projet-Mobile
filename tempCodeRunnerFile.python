@@ -1,0 +1,49 @@
+def solution(matrix):
+    rows = len(matrix)
+    cols = len(matrix[0]) if rows > 0 else 0
+    local_maximums = []
+
+    def is_local_maximum(i, j):
+        current_value = matrix[i][j]
+        
+        # Define all 8 adjacent positions
+        neighbors = [
+            (i-1, j), (i+1, j),     # North, South
+            (i, j-1), (i, j+1),     # West, East
+            (i-1, j-1), (i-1, j+1), # Northwest, Northeast
+            (i+1, j-1), (i+1, j+1)  # Southwest, Southeast
+        ]
+
+        # Check each neighbor
+        for ni, nj in neighbors:
+            if 0 <= ni < rows and 0 <= nj < cols:
+                if matrix[ni][nj] >= current_value:  # Should be strictly less
+                    return False
+        
+        # Return true only if there is at least one non-zero neighbor
+        for ni, nj in neighbors:
+            if 0 <= ni < rows and 0 <= nj < cols and matrix[ni][nj] != 0:
+                return True
+
+        return False
+
+    # Check each position in the matrix
+    for i in range(rows):
+        for j in range(cols):
+            if matrix[i][j] != 0 and is_local_maximum(i, j):
+                local_maximums.append([i, j])
+    
+    return local_maximums
+
+# Test case from the example
+matrix = [
+    [3, 0, 0, 0, 0],
+    [0, 0, 1, 0, 0],
+    [0, 0, 2, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 3, 0, 0, 3]
+]
+
+result = solution(matrix)
+print(result)  # Should print [[0, 0], [2, 2]]

@@ -5,7 +5,7 @@ import React from 'react'
 const Page = () =>{
   return (
     <View style={styles.container}>
-      <Text>chatbot</Text>
+      <Text>profil</Text>
     </View>
       )
 }

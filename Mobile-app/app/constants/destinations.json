@@ -1,0 +1,72 @@
+[
+    {
+        "id": "1",
+        "name": "Forest Morning",
+        "artist": "Nature Symphony",
+        "album": "White Sounds of Nature",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwQFPR0sDEGOm2JWSTlrbtyBg3C1-jhESNmw&s",
+        "description": "The sound of a forest in the early morning, filled with birdsong and gentle rustling.",
+        "rating": 4.8,
+        "price": "1.29",
+        "duration": "7:30",
+        "genre": "Ambient",
+        "category": "Forests",
+        "audio_url": "assets/Rain Sound Effect Short (2 minutes).mp3"
+    },
+    {
+        "id": "2",
+        "name": "Beach Waves",
+        "artist": "Ocean Sounds Collective",
+        "album": "White Sounds of Nature",
+        "image": "https://i.ytimg.com/vi/gEQLKmQ5uss/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBIQFcLqNggf0pXuHbB-GqOcyI-Rg",
+        "description": "Gentle beach waves for relaxation and a feel of seaside tranquility.",
+        "rating": 4.9,
+        "price": "1.49",
+        "duration": "6:00",
+        "genre": "Ambient",
+        "category": "Beaches",
+        "audio_url": "assets/Rain Sound Effect Short (2 minutes).mp3"
+    },
+    {
+        "id": "3",
+        "name": "Mountain Breeze",
+        "artist": "Earthly Melodies",
+        "album": "White Sounds of Nature",
+        "image": "https://i.scdn.co/image/ab67616d00001e02387a07b8b6e2c37854c6657f",
+        "description": "Refreshing mountain breeze with birdsong, ideal for relaxation and meditation.",
+        "rating": 4.7,
+        "price": "1.29",
+        "duration": "8:15",
+        "genre": "Ambient",
+        "category": "Mountains",
+        "audio_url": "assets/Rain Sound Effect Short (2 minutes).mp3"
+    },
+    {
+        "id": "4",
+        "name": "City Rain",
+        "artist": "Urban Serenity",
+        "album": "White Sounds of Nature",
+        "image": "https://img.freepik.com/premium-photo/rainy-night-nyc-with-view-manhattan-skyline_842113-5013.jpg",
+        "description": "Calming rain sounds in a city ambiance, perfect for deep focus or sleep.",
+        "rating": 4.6,
+        "price": "1.39",
+        "duration": "9:00",
+        "genre": "Ambient",
+        "category": "Cities",
+        "audio_url":"./4.mp3"
+    },
+    {
+        "id": "5",
+        "name": "Desert Night",
+        "artist": "Dune Sounds",
+        "album": "White Sounds of Nature",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5yW4Y2m171Bfz9GPtbzc2Mq2vAr-8944ZlQ&s",
+        "description": "A serene desert night soundscape with distant winds and nocturnal animals.",
+        "rating": 4.5,
+        "price": "1.39",
+        "duration": "5:45",
+        "genre": "Ambient",
+        "category": "Deserts",
+        "audio_url": "assets/Rain Sound Effect Short (2 minutes).mp3"
+    }
+]
