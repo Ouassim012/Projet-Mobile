@@ -10,9 +10,9 @@ export default function TabLayout() {
   return (
              <Tabs tabBar={props => <TabBar  {...props}  />} >
               <Tabs.Screen name='index' options={{title:'Home',headerTitle:""}}></Tabs.Screen>
-              <Tabs.Screen name='Chatbot' options={{title:'Chatbot' // Unmount the screen when it's not focused
- // Hides the tab bar on this screen
-}}></Tabs.Screen>
+
+              <Tabs.Screen name='Chatbot'   options={{headerTitleAlign: 'center', // Centre le titre
+}} ></Tabs.Screen>
               <Tabs.Screen name='Profile' options={{title:'Profile'}}></Tabs.Screen>
 
              </Tabs>

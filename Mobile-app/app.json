@@ -19,7 +19,15 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "RECORD_AUDIO",
+        "INTERNET",
+        "BIND_VOICE_INTERACTION",
+        "RECOGNIZE_SPEECH",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.amalab2.Mobileappy"
     },
     "web": {
       "bundler": "metro",
@@ -27,11 +35,24 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
 
+      "expo-router",
+      [
+        "@react-native-voice/voice",
+        {
+          "microphonePermission": "Allow Voice to Text to access the microphone",
+          "speechRecognitionPermission": "Allow Voice to Text to securely recognize user speech"
+        }
+      ],
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "01fec1c3-ca77-4cfd-9b43-63c0404ac117"
+      }
     }
   }
 }
